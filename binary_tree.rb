@@ -26,7 +26,9 @@ class Node
 
      #if the left or right child is an array length of 1, it is a node object, but without children
 
-     #i also have to describe if i want my node tree balanced or not
+     #what is the behavior for when i get to the bottom of the leaves?
+
+
 
 
   end
@@ -41,6 +43,19 @@ end
       right_child = array[(index_of_midpoint+1)..-1]
       original_node = Node.new(midpoint, left_child, right_child)
       #where do my nodes go? an array?
+
+      #so do i create the node objects in the build tree method or in the initialization of the node object, i think if i want to build it, i need to seperate it out. the method i glanced at on stack overflow creates the node objects within the initialization, but i'm not sure that makes sense for me, so im going to create the loop here:
+
+      #so what is the node objection creation loop?
+
+      #in the node object initialization:(....im goin back on my word)
+        if left_child.length > 1
+          midpoint is the node object
+        elsif
+          the single value is the node with no children
+        else
+          there are no node children and the childless node is recognized as such
+        end #i guess
     end
 
      def crawler
