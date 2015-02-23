@@ -41,6 +41,26 @@
   #but, it could have children, or a whole number of descendents.
     #this is what I am having trouble acomadating
 
+    #if there is an array, then there is def a child
+    #if there is one number, there is a child
+    #if the array is empty, there is no child
+
+    #will take an array as input
+    #will return a child, or will say there is no child
+    #how should no child be represented (an empty array)
+
+    #i'm also trying to creat a basecase here where if the array is empty, you don't creat another node object
+
+    #what happens if I the node doesn't have a child, it just should exist, like the search can't go further
+
+    def left_child_finder(array)
+
+    end
+
+    def right_child_finder(array)
+
+    end
+
 class Node
   attr_reader :solo_value, :left_child, :right_child, :array
 
