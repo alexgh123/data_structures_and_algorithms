@@ -12,11 +12,11 @@
 
 
 class Node
-  attr_reader :array, :left_child, :right_child
+  attr_reader :solo_value, :left_child, :right_child
 
-  def initialize(array, left_child=[], right_child=[])
-    p "array's class is: #{array.class}"
-    @array = array
+  def initialize(solo_value, left_child=[], right_child=[])
+    p "solo_value's class is: #{solo_value.class}"
+    @solo_value = solo_value
     @left_child = left_child
     @right_child = right_child
   end
@@ -45,9 +45,11 @@ end #ends node class
 
 #so when i create a node, i want the value/ aka node and then an array. but it seems i also want to just pass an array to the node class to create a new node object, well i have to pick if i want to creat a node object out of a number or an array
 
+# so again, what do i need to pass to the node object. i need to pass it an array. it will then call the build node method on that array
+
 node_experiment = Node.new([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
 p '---------break------------'
 p ""
-p node_experiment.array
+p node_experiment.solo_value
 p 'eh------'
-p node_experiment.build_tree(node_experiment.array)
+p node_experiment.build_tree(node_experiment.solo_value)
