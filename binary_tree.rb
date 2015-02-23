@@ -53,6 +53,8 @@
 
     #what happens if I the node doesn't have a child, it just should exist, like the search can't go further
 
+    #really, the way my node should look is just show the value, and the two children after that, there will be nodes within that
+
     def left_child_finder(array)
 
     end
@@ -64,15 +66,19 @@
 class Node
   attr_reader :solo_value, :left_child, :right_child, :array
 
-  def initialize(array, left_child=[], right_child=[])
+  def initialize(array) #not sure there need to be optional args passed here
 
     array = array.sort
+
+    @parent_node = #i have no idea
 
     @solo_value = parent_node_finder(array)
     @left_children_array = left_children_array_finder(array)
     @right_children_array = right_children_array_finder(array)
     @left_child = @left_children_array[-1]
     @right_child = @right_children_array[0]
+
+    #the solo value here has to exist, but the other value of children doesn't have to exist
   end
 
   def parent_node_finder(array)
