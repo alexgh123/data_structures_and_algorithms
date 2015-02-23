@@ -34,8 +34,14 @@ class Node
 
     #left_child = array[0..(array[midpoint])]
 
-    left_child = array[0..(midpoint-1)]
+    index_of_midpoint = array.index(midpoint)
+    p "hey index_of_midpoint is: #{index_of_midpoint}"
+
+    left_child = array[0..(index_of_midpoint-1)]
     p "hey left children are: #{left_child}"
+
+    right_child = array[(index_of_midpoint)..-1]
+    p "hey, right children are: #{right_child}"
 
   end
 end
