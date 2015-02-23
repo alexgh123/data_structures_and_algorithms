@@ -30,24 +30,45 @@
 
   #i want the parent node finder to return the parent node and the children arrays or children
 
-class Node
-  attr_reader :solo_value, :left_child, :right_child
+#so does the node class creat node objects, or create
+#im getting confused on when I'm accepting arrays to find my parent node and when i need to create a node object with the node
 
-  def initialize(solo_value, left_child=[], right_child=[])
-    p "solo_value's class is: #{solo_value.class}"
-    @solo_value = parent_node_finder
-    # @left_children_array = left_children_array
-    # @right_children_array = right_children_array
-    #left child = left child
-    #right child is right child
+# two ideas here:
+#1.  I accept an array to find my original parrent node
+#2. i accept a single number to create a node object
+
+# a new node is passed a single number value, that is its value
+  #but, it could have children, or a whole number of descendents.
+    #this is what I am having trouble acomadating
+
+class Node
+  attr_reader :solo_value, :left_child, :right_child, :array
+
+  def initialize(array, left_child=[], right_child=[])
+
+    array = array.sort
+
+    @solo_value = parent_node_finder(array)
+    @left_children_array = left_children_array_finder(array)
+    @right_children_array = right_children_array_finder(array)
+    @left_child = @left_children_array[-1]
+    @right_child = @right_children_array[0]
   end
 
   def parent_node_finder(array)
-
-
+    array[(array.length/2)]
   end
 
-  #there is something else here where I want to pass two optional arguments to the node initialization, if the two adiontal arguments are arrays, then find the parent array, if they are just one number, then just make that a node.
+  def left_children_array_finder(array)
+    index_of_midpoint = array.index(@solo_value)
+    left_children = array[0..(index_of_midpoint-1)]
+  end
+
+  def right_children_array_finder(array)
+    index_of_midpoint = array.index(@solo_value)
+    right_child = array[(index_of_midpoint+1)..-1]
+  end
+
 
   def build_tree(array)
     if array.length == 0
@@ -61,6 +82,7 @@ class Node
       array = array.sort
       length_of_array = array.length
       midpoint = array[(length_of_array/2)]
+
       index_of_midpoint = array.index(midpoint)
       left_child = array[0..(index_of_midpoint-1)]
       right_child = array[(index_of_midpoint+1)..-1]
@@ -71,13 +93,6 @@ class Node
   end
 end #ends node class
 
-#so when i create a node, i want the value/ aka node and then an array. but it seems i also want to just pass an array to the node class to create a new node object, well i have to pick if i want to creat a node object out of a number or an array
-
-# so again, what do i need to pass to the node object. i need to pass it an array. it will then call the build node method on that array
 
 node_experiment = Node.new([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
-p '---------break------------'
-p ""
-p node_experiment.solo_value
-p 'eh------'
-p node_experiment.build_tree(node_experiment.solo_value)
+p node_experiment
