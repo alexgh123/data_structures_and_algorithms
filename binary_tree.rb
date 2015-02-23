@@ -29,6 +29,13 @@ class Node
     p array
     p "array length is #{length_of_array}"
     p "hey I'm the midpoint!: #{midpoint}"
+    #so each midpoint will have a left child and right child
+    #starting at the midpoint, each value will have 1. a parent, a left child, and a right child
+
+    #left_child = array[0..(array[midpoint])]
+
+    left_child = array[0..(midpoint-1)]
+    p "hey left children are: #{left_child}"
 
   end
 end
