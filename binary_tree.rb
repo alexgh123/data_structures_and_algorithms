@@ -22,6 +22,7 @@ class Node
     #assigns midpoint object to the middle number
     #then it goes through numberes to the left and right and assigns them as children (left or right) and assigns a parent
     array = array.sort #this just confirms my array is sorted, technically I won't need this later on once my algorithm works
+    #adding line for more descriptive commit
     length_of_array = array.length
     midpoint = array[(length_of_array/2)]
     p "hey, here is the array:"
