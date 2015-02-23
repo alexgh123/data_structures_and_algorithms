@@ -10,7 +10,7 @@ class Node
   attr_reader :array, :left_child, :right_child
   def initialize(array, left_child=[], right_child=[]) #left and right children are optional, i neeed to reformat the way these args are formatted
 
-    build_tree(array)
+    p "array's class is: #{array.class}"
     @array = array
     @left_child = left_child
     @right_child = right_child
