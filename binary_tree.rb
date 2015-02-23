@@ -6,78 +6,78 @@
 
 #so i need to find a 'root node' then create a binary tree out of that information. it would be cool to print out each level of the tree on a new line
 
+#found someone else's testing on github, using it to help drive my devleopment:https://gist.github.com/yuya-takeyama/812489
+
+# module BinaryTree
+#   class Node
+#     def share_examples_for(arg)
+
+#     end
+#   end
+# end
+
+#idk what the above is, using below for me
+
+#so my node class accepts the array value, pulls out a parent node and children nodes
+
+#it seems like I'm trying to do a lot, lets break it down
+  # 1. take an array as an input for a new class
+  # 2. identify the midpoint aka get the parent node
+  # 3. find the children node of the parent nodes
+  #     3.1 the parent node will have two children arrays
+  #     3.2 the two children arrays will provide the child nodes and
+  #         those nodes will make the
+
+  #i want the parent node finder to return the parent node and the children arrays or children
+
 class Node
-  attr_reader :array, :left_child, :right_child
-  def initialize(array, left_child=[], right_child=[]) #left and right children are optional, i neeed to reformat the way these args are formatted
+  attr_reader :solo_value, :left_child, :right_child
 
-    p "array's class is: #{array.class}"
-    @array = array
-    @left_child = left_child
-    @right_child = right_child
+  def initialize(solo_value, left_child=[], right_child=[])
+    p "solo_value's class is: #{solo_value.class}"
+    @solo_value = parent_node_finder
+    # @left_children_array = left_children_array
+    # @right_children_array = right_children_array
+    #left child = left child
+    #right child is right child
+  end
 
-     #where do my nodes go? an array?
+  def parent_node_finder(array)
 
-      #so do i create the node objects in the build tree method or in the initialization of the node object, i think if i want to build it, i need to seperate it out. the method i glanced at on stack overflow creates the node objects within the initialization, but i'm not sure that makes sense for me, so im going to create the loop here:
-
-      #so what is the node objection creation loop?
-
-      #in the node object initialization:(....im goin back on my word)
-        # if left_child.length > 1
-        #   midpoint is the node object
-        # elsif
-        #   the single value is the node with no children
-        # else
-        #   there are no node children and the childless node is recognized as such
-        # end #i guess
-
-     #is this an object, it needs to store parents and children too
-     #my node needs to know it is either the father_node or has a parent node
-     #two types of nodes: original node and regular node
-     #father node always has a child
-     #child node always have a parent
-     #some nodes don't have children
-
-     #this gets trippy b/c im calling build tree in the node intialization too
 
   end
+
+  #there is something else here where I want to pass two optional arguments to the node initialization, if the two adiontal arguments are arrays, then find the parent array, if they are just one number, then just make that a node.
 
   def build_tree(array)
     if array.length == 0
       p "we are at the last leaf, no more children to create node objects with"
     elsif array.length == 1
+      p "elsif comment"
       childless_node = Node.new(array[0])
-      #child less node goes somewhere?
+
     else
-      array = array.sort #im supposed to assume its sorted
+      p "else comment"
+      array = array.sort
       length_of_array = array.length
       midpoint = array[(length_of_array/2)]
       index_of_midpoint = array.index(midpoint)
       left_child = array[0..(index_of_midpoint-1)]
       right_child = array[(index_of_midpoint+1)..-1]
       original_node = Node.new(midpoint, left_child, right_child)
-      #original node goes somewhere?
+      #i can't call the node method on one nubmer!!!
+      #i was making a call for the array, and then also for the value
     end
   end
+end #ends node class
 
-end
+#so when i create a node, i want the value/ aka node and then an array. but it seems i also want to just pass an array to the node class to create a new node object, well i have to pick if i want to creat a node object out of a number or an array
 
-#this doesn't work exactly, if you are passed an empty array, i want you to not do anything, stop making nodes, that is the base case
-
-
-
-def crawler
-  #idk, scans the data
-  #'locate dtaa inside of data structure'
-end
+# so again, what do i need to pass to the node object. i need to pass it an array. it will then call the build node method on that array
 
 node_experiment = Node.new([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
-
-p node_experiment
-
-# p build_tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
-
-
-# p "next line test--------------------------------"
-# build_tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324, 8])
-# p "next line test--------------------------------"
-# build_tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324, 8, 8])
+p '---------break------------'
+p ""
+p node_experiment.solo_value
+p 'eh------'
+p node_experiment.build_tree(node_experiment.solo_value)
