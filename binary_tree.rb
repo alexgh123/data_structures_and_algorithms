@@ -35,6 +35,8 @@ end
       #what if my midpoint is duplicated occurs twice, does my logic cover that
       left_child = array[0..(index_of_midpoint-1)]
       right_child = array[(index_of_midpoint+1)..-1]
+      p "array is:"
+      p array
       p "midpoint is: #{midpoint}"
       p "left child is: #{left_child}"
       p "right_child is: #{right_child}"
@@ -66,3 +68,7 @@ end
 
 
 build_tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
+p "next line test--------------------------------"
+build_tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324, 8])
+p "next line test--------------------------------"
+build_tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324, 8, 8])
