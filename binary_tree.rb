@@ -55,13 +55,54 @@
 
     #really, the way my node should look is just show the value, and the two children after that, there will be nodes within that
 
-    def left_child_finder(array)
 
-    end
+class Node
+  attr_accessor :value, :left_child, :right_child
 
-    def right_child_finder(array)
+  def initialize(value, left_child=nil, right_child=nil)
+    @value = value
+    @left_child = left_child
+    @right_child = right_child
+  end
 
-    end
+end
+
+class BinarySearchTree
+  attr_accessor :array, :tree
+
+  def initialize(array, tree=nil)
+    @array = array
+    @tree = tree
+
+    build_tree(@array)
+
+  end
+
+  def build_tree(array, left=0, right=array.length-1)
+    return if left > right
+
+    array = merge_sort(array)
+
+    index_mid = left +(right-left)/2
+    node = Node.new(array[index_mid])
+
+    node.left_child = build_tree(array, left, index_mid-1)
+    node.right_child = build_tree(array, index_mid+1, right)
+    #i was really close in my build of this, the .left_child notation was a little tricky for me though. it is usable b/c of the
+
+  end
+
+end
+
+
+
+
+
+
+def left_child_finder(array)
+end
+def right_child_finder(array)
+end
 
 class Node
   attr_reader :solo_value, :left_child, :right_child, :array
