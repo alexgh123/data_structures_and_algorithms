@@ -39,38 +39,19 @@ class BinarySearchTree
   end
 
   def breadth_first_search(query)
-    p "guess is #{query}"
     queue = []
     root = @tree.value
-    p "hey root is #{root}"
-
-    return @tree if root == query
-
+    return @tree.value if root == query
     left_child = @tree.left_child
     right_child = @tree.right_child
-
     queue << left_child if left_child != nil
     queue << right_child if right_child != nil
-
-    p "hey before loop, queue is #{queue}"
-
-    count = 0
     loop do
-      count +=1
-      return "queue is empty!!!" if queue.empty?
+      return nil if queue.empty?
       node = queue.shift
-      p "node is #{node.value}"
-
       return node.value if query == node.value
-
-
       queue << node.left_child if node.left_child != nil
       queue << node.right_child if node.right_child != nil
-      p ""
-      p queue
-      p ""
-      p "queue length is: #{queue.length}"
-      p "Count is #{count}"
     end
   end
 
@@ -109,14 +90,14 @@ p a_tree.display_tree {|x| print " #{x} "}
 
 
 
-a_tree.breadth_first_search(7)
+p a_tree.breadth_first_search(7)
 p '---------'
 p '---------'
-a_tree.breadth_first_search(4)
+p a_tree.breadth_first_search(4)
 
 p '---------'
 p '---------'
-a_tree.breadth_first_search(6)
+p a_tree.breadth_first_search(6)
 
 
 
